@@ -41,10 +41,12 @@ export const Navigation = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3 rtl:space-x-reverse">
-            <div className="text-2xl font-bold">
-              <span className="text-white">{language === 'ar' ? 'الجذور' : 'THE ROOTS'}</span>
-            </div>
+          <Link to="/" className="flex items-center space-x-3 rtl:space-x-reverse group">
+            <img 
+              src={new URL('@/assets/logo.png', import.meta.url).href} 
+              alt="The Roots Logo" 
+              className="h-12 w-auto transition-all duration-500 group-hover:scale-110 group-hover:drop-shadow-[0_0_15px_rgba(250,204,21,0.5)]"
+            />
           </Link>
 
           {/* Desktop Navigation */}

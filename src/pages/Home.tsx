@@ -34,10 +34,10 @@ export default function Home() {
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <div className="animate-fade-in-up">
-              <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white">
+              <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white drop-shadow-[0_0_30px_rgba(250,204,21,0.3)] animate-glow">
                 {t('heroTitle')}
               </h1>
-              <p className="text-xl md:text-2xl mb-4 text-accent font-semibold">
+              <p className="text-xl md:text-2xl mb-4 text-accent font-semibold animate-shimmer">
                 {t('heroSubtitle')}
               </p>
               <p className="text-lg md:text-xl mb-10 text-white/80 max-w-2xl mx-auto">
@@ -46,7 +46,7 @@ export default function Home() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
                   size="lg"
-                  className="bg-accent hover:bg-accent/90 text-navy font-semibold text-lg px-8 py-6 shadow-glow"
+                  className="bg-accent hover:bg-accent/90 text-navy font-semibold text-lg px-8 py-6 shadow-glow transition-all duration-300 hover:scale-105 hover:shadow-[0_0_50px_rgba(250,204,21,0.5)]"
                   asChild
                 >
                   <a href="https://www.therootsbh.com/etrade/newlogin.aspx" target="_blank" rel="noopener noreferrer">
@@ -57,7 +57,7 @@ export default function Home() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-2 border-white text-white hover:bg-white hover:text-navy font-semibold text-lg px-8 py-6"
+                  className="border-2 border-white text-white hover:bg-white hover:text-navy font-semibold text-lg px-8 py-6 transition-all duration-300 hover:scale-105"
                   asChild
                 >
                   <Link to="/about">
@@ -70,8 +70,9 @@ export default function Home() {
         </div>
 
         {/* Decorative Elements */}
-        <div className="absolute top-20 left-10 w-72 h-72 bg-accent/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-gold/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-20 left-10 w-72 h-72 bg-accent/10 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-gold/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent/5 rounded-full blur-[100px]"></div>
       </section>
 
       {/* Services Section */}
@@ -84,12 +85,12 @@ export default function Home() {
             {services.map((service, index) => (
               <Card
                 key={index}
-                className="p-8 hover:shadow-elegant transition-all duration-300 hover:-translate-y-2 border-2 hover:border-accent/50"
-                style={{ animationDelay: `${index * 100}ms` }}
+                className="p-8 hover-lift card-glow border-2 hover:border-accent/50 bg-card/50 backdrop-blur-sm animate-scale-in"
+                style={{ animationDelay: `${index * 150}ms` }}
               >
                 <div className="flex flex-col items-center text-center">
-                  <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mb-6">
-                    <service.icon className="w-8 h-8 text-accent" />
+                  <div className="w-16 h-16 bg-gradient-to-br from-accent to-gold rounded-full flex items-center justify-center mb-6 shadow-lg transition-transform duration-300 hover:rotate-12 hover:scale-110">
+                    <service.icon className="w-8 h-8 text-navy" />
                   </div>
                   <h3 className="text-xl font-semibold mb-3 text-foreground">{service.title}</h3>
                   <p className="text-muted-foreground">{service.description}</p>
@@ -118,14 +119,16 @@ export default function Home() {
                 </Button>
               </div>
               <div className="relative">
-                <div className="aspect-square rounded-2xl overflow-hidden shadow-elegant">
+                <div className="aspect-square rounded-2xl overflow-hidden shadow-elegant transform transition-transform duration-500 hover:scale-105 hover:rotate-2">
                   <img
                     src="https://images.unsplash.com/photo-1560520031-3a4dc4e9de0c?q=80&w=1973"
                     alt="Trading"
                     className="w-full h-full object-cover"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy/50 to-transparent"></div>
                 </div>
-                <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-accent/20 rounded-full blur-2xl"></div>
+                <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-accent/20 rounded-full blur-2xl animate-float"></div>
+                <div className="absolute -top-6 -right-6 w-24 h-24 bg-gold/20 rounded-full blur-2xl animate-float" style={{ animationDelay: '2s' }}></div>
               </div>
             </div>
           </div>

@@ -24,9 +24,9 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <div className="min-h-screen flex flex-col">
-            <StockTicker />
             <Navigation />
-            <main className="flex-1">
+            <StockTicker />
+            <main className="flex-1 pt-20">
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
