@@ -25,10 +25,12 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <div className="min-h-screen flex flex-col">
-            <Navigation />
-            <StockTicker />
-            <MarketChartHeader />
-            <main className="flex-1 pt-20">
+            <div className="fixed top-0 left-0 right-0 z-50">
+              <Navigation />
+              <StockTicker />
+              <MarketChartHeader />
+            </div>
+            <main className="flex-1 pt-[206px]">
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />

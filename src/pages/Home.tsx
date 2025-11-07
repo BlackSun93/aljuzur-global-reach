@@ -114,25 +114,56 @@ export default function Home() {
               {language === 'ar' ? 'لماذا تختارنا؟' : 'Why Choose Us?'}
             </h2>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 max-w-7xl mx-auto mb-16">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto mb-16">
             {[
-              { icon: Shield, title: language === 'ar' ? 'أمان متقدم' : 'Security', color: 'from-blue-500 to-blue-600' },
-              { icon: Zap, title: language === 'ar' ? 'تنفيذ فوري' : 'Fast Execution', color: 'from-accent to-gold' },
-              { icon: Award, title: language === 'ar' ? 'موثوقية' : 'Reliability', color: 'from-purple-500 to-purple-600' },
-              { icon: HeadphonesIcon, title: language === 'ar' ? 'دعم 24/7' : '24/7 Support', color: 'from-green-500 to-green-600' },
-              { icon: TrendingUp, title: language === 'ar' ? 'أدوات احترافية' : 'Pro Tools', color: 'from-orange-500 to-orange-600' },
-              { icon: Lock, title: language === 'ar' ? 'مرخص' : 'Regulated', color: 'from-red-500 to-red-600' },
+              {
+                icon: Shield,
+                title: language === 'ar' ? 'أمان متقدم' : 'Advanced Security',
+                description: language === 'ar' ? 'حماية متعددة الطبقات لأموالك وبياناتك' : 'Multi-layered protection for your funds and data',
+                color: 'from-blue-500 to-blue-600'
+              },
+              {
+                icon: Zap,
+                title: language === 'ar' ? 'تنفيذ فوري' : 'Instant Execution',
+                description: language === 'ar' ? 'تنفيذ صفقاتك بسرعة فائقة' : 'Execute trades with lightning speed',
+                color: 'from-accent to-gold'
+              },
+              {
+                icon: Award,
+                title: language === 'ar' ? 'موثوقية عالية' : 'High Reliability',
+                description: language === 'ar' ? 'أكثر من 25 عامًا من الخبرة' : 'Over 25 years of experience',
+                color: 'from-purple-500 to-purple-600'
+              },
+              {
+                icon: HeadphonesIcon,
+                title: language === 'ar' ? 'دعم 24/7' : '24/7 Support',
+                description: language === 'ar' ? 'فريق دعم متاح على مدار الساعة' : 'Support team available round the clock',
+                color: 'from-green-500 to-green-600'
+              },
+              {
+                icon: TrendingUp,
+                title: language === 'ar' ? 'أدوات احترافية' : 'Professional Tools',
+                description: language === 'ar' ? 'أدوات تحليل متقدمة ومؤشرات فنية' : 'Advanced analysis tools and indicators',
+                color: 'from-orange-500 to-orange-600'
+              },
+              {
+                icon: Lock,
+                title: language === 'ar' ? 'رقابة معتمدة' : 'Regulated',
+                description: language === 'ar' ? 'مرخص من الهيئات المالية' : 'Licensed by financial authorities',
+                color: 'from-red-500 to-red-600'
+              },
             ].map((feature, index) => (
               <Card
                 key={index}
-                className="p-4 border border-accent/20 hover:border-accent/50 hover-lift transition-all duration-300 animate-scale-in relative overflow-hidden group bg-gradient-to-br from-card to-muted/20"
+                className="p-6 border-2 border-accent/20 hover:border-accent/50 hover-lift transition-all duration-300 animate-scale-in relative overflow-hidden group bg-gradient-to-br from-card to-muted/20"
                 style={{ animationDelay: `${index * 50}ms` }}
               >
                 <div className="flex flex-col items-center text-center">
-                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${feature.color} flex items-center justify-center shadow-md mb-3 transform transition-all duration-300 group-hover:scale-110`}>
-                    <feature.icon className="w-6 h-6 text-white" />
+                  <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${feature.color} flex items-center justify-center shadow-md mb-4 transform transition-all duration-300 group-hover:scale-110`}>
+                    <feature.icon className="w-7 h-7 text-white" />
                   </div>
-                  <h3 className="text-sm font-semibold text-foreground">{feature.title}</h3>
+                  <h3 className="text-lg font-bold text-foreground mb-2">{feature.title}</h3>
+                  <p className="text-sm text-muted-foreground">{feature.description}</p>
                 </div>
               </Card>
             ))}

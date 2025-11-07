@@ -32,7 +32,7 @@ export const MarketChartHeader = () => {
 
   return (
     <div className="w-full bg-navy/95 backdrop-blur-md border-b border-accent/20 shadow-lg">
-      <div ref={chartRef} className="tradingview-widget-container" style={{ height: '120px' }}>
+      <div ref={chartRef} className="tradingview-widget-container" style={{ height: '80px' }}>
         <div className="tradingview-widget-container__widget"></div>
       </div>
     </div>
