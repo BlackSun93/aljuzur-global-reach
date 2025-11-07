@@ -96,24 +96,133 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Market Stats Section - NEW */}
+      {/* Market Stats Section */}
       <section className="py-20 bg-background relative">
         <div className="container mx-auto px-4">
           <MarketStats />
         </div>
       </section>
 
-      {/* Why Choose Us & Services - Compact Combined Section */}
+      {/* About Us Section */}
+      <section className="py-16 bg-background relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[100px]"></div>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-16 items-center">
+              <div className="order-2 md:order-1">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/30 text-accent mb-6 backdrop-blur-sm">
+                  <Sparkles className="w-4 h-4" />
+                  <span className="text-sm font-semibold">About Us</span>
+                </div>
+                <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground leading-tight">
+                  {t('aboutTitle')}
+                </h2>
+                <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+                  {t('aboutDescription')}
+                </p>
+                <Button asChild className="bg-navy hover:bg-navy-light group">
+                  <Link to="/about">
+                    {t('learnMore')}
+                    <ArrowRight className="ml-2 rtl:ml-0 rtl:mr-2 rtl:rotate-180 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </Button>
+              </div>
+              <div className="relative order-1 md:order-2">
+                <div className="aspect-square rounded-3xl overflow-hidden shadow-elegant transform transition-transform duration-500 hover:scale-105 hover:rotate-2 relative group">
+                  <img
+                    src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=2070"
+                    alt="Egyptian Stock Exchange Trading"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy/70 via-navy/30 to-transparent"></div>
+                  <div className="absolute bottom-6 left-6 right-6 text-white">
+                    <p className="text-2xl font-bold drop-shadow-lg">{language === 'ar' ? 'البورصة المصرية' : 'Egyptian Stock Exchange'}</p>
+                    <p className="text-sm mt-2 opacity-90">{language === 'ar' ? 'شريكك الموثوق في التداول' : 'Your Trusted Trading Partner'}</p>
+                  </div>
+                </div>
+                <div className="absolute -bottom-6 -left-6 w-40 h-40 bg-accent/20 rounded-full blur-3xl animate-float"></div>
+                <div className="absolute -top-6 -right-6 w-32 h-32 bg-gold/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Leadership Section */}
+      <section className="py-16 bg-gradient-to-r from-navy via-navy-light to-navy text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(250,204,21,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(250,204,21,0.05)_1px,transparent_1px)] bg-[size:100px_100px]"></div>
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <div className="max-w-4xl mx-auto">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/20 border border-accent/40 text-accent mb-6 backdrop-blur-sm">
+              <Award className="w-4 h-4" />
+              <span className="text-sm font-semibold">Trusted Leadership</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">{t('ownershipTitle')}</h2>
+            <p className="text-2xl mb-4 text-accent font-semibold">{t('ownershipDescription')}</p>
+            <p className="text-lg mb-10 max-w-3xl mx-auto text-white/90 leading-relaxed">
+              {t('ownershipDetail')}
+            </p>
+            <Button
+              size="lg"
+              className="bg-accent hover:bg-accent/90 text-navy font-bold px-10 py-7 group relative overflow-hidden"
+              asChild
+            >
+              <a
+                href="https://www.boursakuwait.com.kw/ar/board-of-directors/bader-alkharafi"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span className="relative z-10">{t('learnMore')}</span>
+                <ArrowRight className="ml-2 rtl:ml-0 rtl:mr-2 rtl:rotate-180 group-hover:translate-x-1 transition-transform relative z-10" />
+                <div className="absolute inset-0 bg-gradient-to-r from-gold to-accent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              </a>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Services Section */}
       <section className="py-16 bg-muted/30 relative overflow-hidden">
         <div className="absolute inset-0 bg-[linear-gradient(rgba(250,204,21,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(250,204,21,0.02)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
         <div className="container mx-auto px-4 relative z-10">
-          {/* Why Choose Us - Compact */}
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-bold mb-3 text-foreground">
+              {t('servicesTitle')}
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {services.map((service, index) => (
+              <Card
+                key={index}
+                className="p-6 hover-lift card-glow border-2 hover:border-accent/50 bg-gradient-to-br from-card via-card to-accent/5 backdrop-blur-sm animate-scale-in group"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <div className="flex flex-col items-center text-center">
+                  <div className="w-16 h-16 bg-gradient-to-br from-accent to-gold rounded-xl flex items-center justify-center mb-4 shadow-lg transition-all duration-500 group-hover:rotate-12 group-hover:scale-110 relative">
+                    <service.icon className="w-8 h-8 text-navy relative z-10" />
+                    <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-accent to-gold blur-lg opacity-0 group-hover:opacity-70 transition-opacity"></div>
+                  </div>
+                  <h3 className="text-xl font-bold mb-2 text-foreground group-hover:text-accent transition-colors">
+                    {service.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{service.description}</p>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us Section */}
+      <section className="py-16 bg-background relative overflow-hidden">
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(250,204,21,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(250,204,21,0.02)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold mb-3 text-foreground">
               {language === 'ar' ? 'لماذا تختارنا؟' : 'Why Choose Us?'}
             </h2>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto mb-16">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {[
               {
                 icon: Shield,
@@ -166,111 +275,6 @@ export default function Home() {
                 </div>
               </Card>
             ))}
-          </div>
-
-          {/* Services - Compact */}
-          <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-bold mb-3 text-foreground">
-              {t('servicesTitle')}
-            </h2>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {services.map((service, index) => (
-              <Card
-                key={index}
-                className="p-6 hover-lift card-glow border-2 hover:border-accent/50 bg-gradient-to-br from-card via-card to-accent/5 backdrop-blur-sm animate-scale-in group"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <div className="flex flex-col items-center text-center">
-                  <div className="w-16 h-16 bg-gradient-to-br from-accent to-gold rounded-xl flex items-center justify-center mb-4 shadow-lg transition-all duration-500 group-hover:rotate-12 group-hover:scale-110 relative">
-                    <service.icon className="w-8 h-8 text-navy relative z-10" />
-                    <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-accent to-gold blur-lg opacity-0 group-hover:opacity-70 transition-opacity"></div>
-                  </div>
-                  <h3 className="text-xl font-bold mb-2 text-foreground group-hover:text-accent transition-colors">
-                    {service.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{service.description}</p>
-                </div>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* About Preview Section - Compact */}
-      <section className="py-16 bg-background relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[100px]"></div>
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-16 items-center">
-              <div className="order-2 md:order-1">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/30 text-accent mb-6 backdrop-blur-sm">
-                  <Sparkles className="w-4 h-4" />
-                  <span className="text-sm font-semibold">About Us</span>
-                </div>
-                <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground leading-tight">
-                  {t('aboutTitle')}
-                </h2>
-                <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                  {t('aboutDescription')}
-                </p>
-                <Button asChild className="bg-navy hover:bg-navy-light group">
-                  <Link to="/about">
-                    {t('learnMore')}
-                    <ArrowRight className="ml-2 rtl:ml-0 rtl:mr-2 rtl:rotate-180 group-hover:translate-x-1 transition-transform" />
-                  </Link>
-                </Button>
-              </div>
-              <div className="relative order-1 md:order-2">
-                <div className="aspect-square rounded-3xl overflow-hidden shadow-elegant transform transition-transform duration-500 hover:scale-105 hover:rotate-2 relative group">
-                  <img
-                    src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=2070"
-                    alt="Egyptian Stock Exchange Trading"
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy/70 via-navy/30 to-transparent"></div>
-                  <div className="absolute bottom-6 left-6 right-6 text-white">
-                    <p className="text-2xl font-bold drop-shadow-lg">{language === 'ar' ? 'البورصة المصرية' : 'Egyptian Stock Exchange'}</p>
-                    <p className="text-sm mt-2 opacity-90">{language === 'ar' ? 'شريكك الموثوق في التداول' : 'Your Trusted Trading Partner'}</p>
-                  </div>
-                </div>
-                <div className="absolute -bottom-6 -left-6 w-40 h-40 bg-accent/20 rounded-full blur-3xl animate-float"></div>
-                <div className="absolute -top-6 -right-6 w-32 h-32 bg-gold/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section - Compact */}
-      <section className="py-16 bg-gradient-to-r from-navy via-navy-light to-navy text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(250,204,21,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(250,204,21,0.05)_1px,transparent_1px)] bg-[size:100px_100px]"></div>
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <div className="max-w-4xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/20 border border-accent/40 text-accent mb-6 backdrop-blur-sm">
-              <Award className="w-4 h-4" />
-              <span className="text-sm font-semibold">Trusted Leadership</span>
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">{t('ownershipTitle')}</h2>
-            <p className="text-2xl mb-4 text-accent font-semibold">{t('ownershipDescription')}</p>
-            <p className="text-lg mb-10 max-w-3xl mx-auto text-white/90 leading-relaxed">
-              {t('ownershipDetail')}
-            </p>
-            <Button
-              size="lg"
-              className="bg-accent hover:bg-accent/90 text-navy font-bold px-10 py-7 group relative overflow-hidden"
-              asChild
-            >
-              <a
-                href="https://www.boursakuwait.com.kw/ar/board-of-directors/bader-alkharafi"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span className="relative z-10">{t('learnMore')}</span>
-                <ArrowRight className="ml-2 rtl:ml-0 rtl:mr-2 rtl:rotate-180 group-hover:translate-x-1 transition-transform relative z-10" />
-                <div className="absolute inset-0 bg-gradient-to-r from-gold to-accent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              </a>
-            </Button>
           </div>
         </div>
       </section>
