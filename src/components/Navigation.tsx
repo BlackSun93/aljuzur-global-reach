@@ -58,7 +58,7 @@ export const Navigation = () => {
                 className={cn(
                   'px-4 py-2 rounded-lg transition-colors duration-200',
                   location.pathname === item.path
-                    ? 'text-accent font-medium'
+                    ? 'bg-accent/20 text-accent font-medium border border-accent/30'
                     : 'text-white/80 hover:text-accent hover:bg-white/5'
                 )}
               >
@@ -107,7 +107,7 @@ export const Navigation = () => {
                 className={cn(
                   'block px-4 py-3 rounded-lg transition-colors duration-200',
                   location.pathname === item.path
-                    ? 'text-accent font-medium bg-white/5'
+                    ? 'bg-accent/20 text-accent font-medium border border-accent/30'
                     : 'text-white/80 hover:text-accent hover:bg-white/5'
                 )}
               >

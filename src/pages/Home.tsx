@@ -30,7 +30,7 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Hero Section - Enhanced */}
-      <section className="relative min-h-[100vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-navy via-navy-light to-navy">
+      <section className="relative min-h-[calc(100vh-206px)] flex items-center justify-center overflow-hidden bg-gradient-to-br from-navy via-navy-light to-navy">
         {/* Animated Background */}
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=2070')] bg-cover bg-center opacity-10"></div>
 
