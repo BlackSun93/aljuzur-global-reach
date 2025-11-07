@@ -7,7 +7,6 @@ import { LanguageProvider } from "@/contexts/LanguageContext";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { StockTicker } from "@/components/StockTicker";
-import { MarketChartHeader } from "@/components/MarketChartHeader";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Structure from "./pages/Structure";
@@ -28,9 +27,8 @@ const App = () => (
             <div className="fixed top-0 left-0 right-0 z-50">
               <Navigation />
               <StockTicker />
-              <MarketChartHeader />
             </div>
-            <main className="flex-1 pt-[206px]">
+            <main className="flex-1 pt-[126px]">
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />

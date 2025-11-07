@@ -27,7 +27,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen -mt-[206px] pt-[206px]">
+    <div className="min-h-screen -mt-[126px] pt-[126px]">
       {/* Hero Section - Enhanced */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-navy via-navy-light to-navy">
         {/* Animated Background */}
