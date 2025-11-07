@@ -4,6 +4,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { TrendingUp, BarChart3, FileText, ArrowRight, Sparkles, Play, Award, Shield, Zap, HeadphonesIcon, Lock } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { MarketStats } from '@/components/MarketStats';
+import { MobileAppSection } from '@/components/MobileAppSection';
 
 export default function Home() {
   const { t, language } = useLanguage();
@@ -278,6 +279,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Mobile App Section */}
+      <MobileAppSection />
     </div>
   );
 }

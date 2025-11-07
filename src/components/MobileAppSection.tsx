@@ -60,7 +60,7 @@ export const MobileAppSection = () => {
               {/* App Store Badges */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start mb-8">
                 <a
-                  href="https://apps.apple.com"
+                  href="https://apps.apple.com/eg/app/the-roots/id1511134748"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group"
@@ -77,7 +77,7 @@ export const MobileAppSection = () => {
                 </a>
 
                 <a
-                  href="https://play.google.com"
+                  href="https://play.google.com/store/apps/details?id=com.therootsbh.mobile"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group"
