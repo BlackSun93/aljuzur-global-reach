@@ -5,8 +5,6 @@ import { TrendingUp, BarChart3, FileText, ArrowRight, Sparkles, Play, Award, Shi
 import { Link } from 'react-router-dom';
 import { MarketStats } from '@/components/MarketStats';
 import { MarketDashboard } from '@/components/MarketDashboard';
-import { Testimonials } from '@/components/Testimonials';
-import { useState } from 'react';
 
 export default function Home() {
   const { t, language } = useLanguage();
@@ -173,13 +171,6 @@ export default function Home() {
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
           <MarketDashboard />
-        </div>
-      </section>
-
-      {/* Testimonials Section - Compact */}
-      <section className="py-16 bg-gradient-to-br from-muted/30 via-background to-muted/30">
-        <div className="container mx-auto px-4">
-          <Testimonials />
         </div>
       </section>
 
