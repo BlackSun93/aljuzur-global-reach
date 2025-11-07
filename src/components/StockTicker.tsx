@@ -37,8 +37,8 @@ export const StockTicker = () => {
   }, []);
 
   return (
-    <div className="w-full bg-navy border-b border-navy-light">
-      <div ref={containerRef} className="tradingview-widget-container">
+    <div className="w-full bg-background border-b border-border shadow-md">
+      <div ref={containerRef} className="tradingview-widget-container min-h-[46px]">
         <div className="tradingview-widget-container__widget"></div>
       </div>
     </div>
