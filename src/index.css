@@ -357,3 +357,15 @@ All colors MUST be HSL.
 .card-glow:hover::before {
   opacity: 1;
 }
+
+/* TradingView Widget Background Override */
+.tradingview-widget-container,
+.tradingview-widget-container > div,
+.tradingview-widget-container iframe {
+  background-color: transparent !important;
+}
+
+/* Force TradingView ticker tape to be transparent */
+.tradingview-widget-container__widget {
+  background-color: transparent !important;
+}
