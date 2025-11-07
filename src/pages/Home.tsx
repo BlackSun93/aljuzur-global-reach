@@ -28,9 +28,9 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen -mt-[206px] pt-[206px]">
       {/* Hero Section - Enhanced */}
-      <section className="relative min-h-[calc(100vh-206px)] flex items-center justify-center overflow-hidden bg-gradient-to-br from-navy via-navy-light to-navy">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-navy via-navy-light to-navy">
         {/* Animated Background */}
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=2070')] bg-cover bg-center opacity-10"></div>
 
@@ -232,15 +232,14 @@ export default function Home() {
               <div className="relative order-1 md:order-2">
                 <div className="aspect-square rounded-3xl overflow-hidden shadow-elegant transform transition-transform duration-500 hover:scale-105 hover:rotate-2 relative group">
                   <img
-                    src="https://images.unsplash.com/photo-1560520031-3a4dc4e9de0c?q=80&w=1973"
-                    alt="Trading"
+                    src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=2070"
+                    alt="Egyptian Stock Exchange Trading"
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy/70 via-navy/30 to-transparent"></div>
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="w-16 h-16 rounded-full bg-accent flex items-center justify-center shadow-2xl">
-                      <Play className="w-8 h-8 text-navy ml-1" />
-                    </div>
+                  <div className="absolute bottom-6 left-6 right-6 text-white">
+                    <p className="text-2xl font-bold drop-shadow-lg">{language === 'ar' ? 'البورصة المصرية' : 'Egyptian Stock Exchange'}</p>
+                    <p className="text-sm mt-2 opacity-90">{language === 'ar' ? 'شريكك الموثوق في التداول' : 'Your Trusted Trading Partner'}</p>
                   </div>
                 </div>
                 <div className="absolute -bottom-6 -left-6 w-40 h-40 bg-accent/20 rounded-full blur-3xl animate-float"></div>

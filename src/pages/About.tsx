@@ -1,6 +1,7 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Card } from '@/components/ui/card';
 import { Building2, Users, TrendingUp, Award } from 'lucide-react';
+import { CompanyLocations } from '@/components/CompanyLocations';
 
 export default function About() {
   const { t, language } = useLanguage();
@@ -8,10 +9,10 @@ export default function About() {
   const features = [
     {
       icon: Building2,
-      title: language === 'ar' ? 'تأسست عام 1995' : 'Established 1995',
-      description: language === 'ar' 
-        ? 'أكثر من 25 عامًا من الخبرة في السوق المصري'
-        : 'Over 25 years of experience in the Egyptian market',
+      title: language === 'ar' ? 'تأسست في مصر' : 'Established in Egypt',
+      description: language === 'ar'
+        ? 'شركة رائدة في تداول الأوراق المالية في البورصة المصرية'
+        : 'Leading stock brokerage firm on the Egyptian Exchange',
     },
     {
       icon: Users,
@@ -29,10 +30,10 @@ export default function About() {
     },
     {
       icon: Award,
-      title: language === 'ar' ? 'الموثوقية' : 'Reliability',
+      title: language === 'ar' ? 'الموثوقية' : 'Trusted Partner',
       description: language === 'ar'
-        ? 'عضو في شركات BNK القابضة الكويتية'
-        : 'Member of BNK Holding Kuwait',
+        ? 'عضو معتمد في البورصة المصرية'
+        : 'Licensed member of the Egyptian Exchange',
     },
   ];
 
@@ -86,24 +87,35 @@ export default function About() {
             </div>
             
             <div className="grid md:grid-cols-2 gap-8 mt-16">
-              <div className="relative rounded-2xl overflow-hidden shadow-elegant aspect-[4/3]">
+              <div className="relative rounded-2xl overflow-hidden shadow-elegant aspect-[4/3] group">
                 <img
-                  src="https://images.unsplash.com/photo-1559526324-593bc073d938?q=80&w=2070"
-                  alt="Trading Floor"
-                  className="w-full h-full object-cover"
+                  src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?q=80&w=2070"
+                  alt="Stock Market Trading"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy/60 to-transparent"></div>
+                <div className="absolute bottom-4 left-4 text-white">
+                  <p className="font-bold text-lg">{language === 'ar' ? 'تداول احترافي' : 'Professional Trading'}</p>
+                </div>
               </div>
-              <div className="relative rounded-2xl overflow-hidden shadow-elegant aspect-[4/3]">
+              <div className="relative rounded-2xl overflow-hidden shadow-elegant aspect-[4/3] group">
                 <img
-                  src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070"
-                  alt="Analytics"
-                  className="w-full h-full object-cover"
+                  src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?q=80&w=2070"
+                  alt="Financial Analysis"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy/60 to-transparent"></div>
+                <div className="absolute bottom-4 left-4 text-white">
+                  <p className="font-bold text-lg">{language === 'ar' ? 'تحليل مالي' : 'Financial Analysis'}</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
+
+      {/* Locations Section */}
+      <CompanyLocations />
 
       {/* Ownership Section */}
       <section className="py-20 bg-background">
