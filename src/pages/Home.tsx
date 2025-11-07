@@ -41,11 +41,11 @@ export default function Home() {
           <div className="max-w-5xl mx-auto text-center">
             <div className="animate-fade-in-up">
               {/* Logo */}
-              <div className="flex justify-center mb-8">
+              <div className="flex justify-center mb-12">
                 <img
                   src={new URL('@/assets/logo.png', import.meta.url).href}
                   alt="The Roots Logo"
-                  className="h-32 md:h-40 w-auto animate-glow drop-shadow-[0_0_40px_rgba(250,204,21,0.5)]"
+                  className="h-48 md:h-64 w-auto animate-glow drop-shadow-[0_0_50px_rgba(250,204,21,0.6)]"
                 />
               </div>
 

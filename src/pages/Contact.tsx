@@ -93,7 +93,7 @@ export default function Contact() {
                       <Phone className="w-5 h-5 text-accent flex-shrink-0 mt-1" />
                       <div className="space-y-1">
                         {branch.phones.map((phone, phoneIndex) => (
-                          <p key={phoneIndex} className="text-muted-foreground">
+                          <p key={phoneIndex} className="text-muted-foreground" dir="ltr">
                             {phone}
                           </p>
                         ))}

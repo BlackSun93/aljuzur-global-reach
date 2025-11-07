@@ -58,7 +58,7 @@ export const Footer = () => {
                   <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
                     <Phone className="w-5 h-5" />
                   </div>
-                  <span>+20 123 456 789</span>
+                  <span dir="ltr">+20 123 456 789</span>
                 </a>
                 <a href="mailto:info@theroots.com" className="flex items-center gap-3 text-white/70 hover:text-accent transition-colors group">
                   <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
