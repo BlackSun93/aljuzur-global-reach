@@ -63,12 +63,31 @@ export default function Structure() {
       {/* Team Grid */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
+          {/* CEO - Chairman at the top */}
+          <div className="max-w-md mx-auto mb-16">
+            <Card className="p-10 hover:shadow-elegant transition-all duration-300 hover:-translate-y-2 border-2 border-accent/50 animate-scale-in">
+              <div className="flex flex-col items-center text-center">
+                <div className="relative w-40 h-40 mb-6 group">
+                  <div className="absolute inset-0 bg-gradient-to-br from-accent to-gold rounded-full blur-lg opacity-60 group-hover:opacity-90 transition-opacity"></div>
+                  <img
+                    src={team[0].image}
+                    alt={team[0].name}
+                    className="relative w-full h-full object-cover rounded-full border-4 border-accent/30 shadow-xl group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <h3 className="text-2xl font-bold mb-2 text-foreground">{team[0].name}</h3>
+                <p className="text-accent font-semibold text-lg">{team[0].position}</p>
+              </div>
+            </Card>
+          </div>
+
+          {/* Other Team Members - 2 rows of 3 */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-            {team.map((member, index) => (
+            {team.slice(1).map((member, index) => (
               <Card
                 key={index}
                 className="p-8 hover:shadow-elegant transition-all duration-300 hover:-translate-y-2 border-2 hover:border-accent/50 animate-scale-in"
-                style={{ animationDelay: `${index * 50}ms` }}
+                style={{ animationDelay: `${(index + 1) * 50}ms` }}
               >
                 <div className="flex flex-col items-center text-center">
                   <div className="relative w-32 h-32 mb-6 group">
