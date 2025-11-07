@@ -23,7 +23,7 @@ export const StockTicker = () => {
         { proName: 'FOREXCOM:XAUUSD', title: 'Gold' },
       ],
       showSymbolLogo: true,
-      isTransparent: false,
+      isTransparent: true,
       displayMode: 'adaptive',
       colorTheme: 'dark',
       locale: 'en',
