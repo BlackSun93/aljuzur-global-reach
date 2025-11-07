@@ -93,18 +93,6 @@ export const MobileAppSection = () => {
                   </div>
                 </a>
               </div>
-
-              {/* Quick Stats */}
-              <div className="grid grid-cols-2 gap-4 max-w-md mx-auto md:mx-0">
-                <div className="text-center md:text-left">
-                  <p className="text-2xl font-bold text-accent">50K+</p>
-                  <p className="text-sm text-white/70">{language === 'ar' ? 'تنزيل' : 'Downloads'}</p>
-                </div>
-                <div className="text-center md:text-left">
-                  <p className="text-2xl font-bold text-accent">4.8★</p>
-                  <p className="text-sm text-white/70">{language === 'ar' ? 'تقييم' : 'Rating'}</p>
-                </div>
-              </div>
             </div>
 
             {/* Right Side - Phone Mockup & Features */}

@@ -1,6 +1,5 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Card } from '@/components/ui/card';
-import { User } from 'lucide-react';
 
 export default function Structure() {
   const { t, language } = useLanguage();
@@ -9,30 +8,37 @@ export default function Structure() {
     {
       name: language === 'ar' ? 'احمد ابو زيد' : 'Ahmed Abu Zeid',
       position: t('chairman'),
+      image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop',
     },
     {
       name: language === 'ar' ? 'علي عزت' : 'Ali Ezzat',
       position: t('viceChairman'),
+      image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop',
     },
     {
       name: language === 'ar' ? 'محمد ابو النجا' : 'Mohamed Abu El-Naga',
       position: t('managingDirector'),
+      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop',
     },
     {
       name: language === 'ar' ? 'هيثم يسري' : 'Haitham Yousry',
       position: t('internalAuditor'),
+      image: 'https://images.unsplash.com/photo-1556157382-97eda2d62296?w=400&h=400&fit=crop',
     },
     {
       name: language === 'ar' ? 'محمد فايز' : 'Mohamed Fayez',
       position: t('financialManager'),
+      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop',
     },
     {
       name: language === 'ar' ? 'محمد زناتي' : 'Mohamed Zanaty',
       position: t('tradingManager'),
+      image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop',
     },
     {
       name: language === 'ar' ? 'أحمد أيوب' : 'Ahmed Ayoub',
       position: t('operationsManager'),
+      image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop',
     },
   ];
 
@@ -61,12 +67,17 @@ export default function Structure() {
             {team.map((member, index) => (
               <Card
                 key={index}
-                className="p-8 hover:shadow-elegant transition-all duration-300 hover:-translate-y-2 border-2 hover:border-accent/50"
+                className="p-8 hover:shadow-elegant transition-all duration-300 hover:-translate-y-2 border-2 hover:border-accent/50 animate-scale-in"
                 style={{ animationDelay: `${index * 50}ms` }}
               >
                 <div className="flex flex-col items-center text-center">
-                  <div className="w-24 h-24 bg-gradient-to-br from-accent to-gold rounded-full flex items-center justify-center mb-6 shadow-lg">
-                    <User className="w-12 h-12 text-white" />
+                  <div className="relative w-32 h-32 mb-6 group">
+                    <div className="absolute inset-0 bg-gradient-to-br from-accent to-gold rounded-full blur-md opacity-50 group-hover:opacity-75 transition-opacity"></div>
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="relative w-full h-full object-cover rounded-full border-4 border-accent/20 shadow-lg group-hover:scale-105 transition-transform duration-300"
+                    />
                   </div>
                   <h3 className="text-xl font-bold mb-2 text-foreground">{member.name}</h3>
                   <p className="text-accent font-semibold">{member.position}</p>
