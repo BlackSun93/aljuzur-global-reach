@@ -7,6 +7,7 @@ import { LanguageProvider } from "@/contexts/LanguageContext";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { StockTicker } from "@/components/StockTicker";
+import { MarketChartHeader } from "@/components/MarketChartHeader";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Structure from "./pages/Structure";
@@ -26,6 +27,7 @@ const App = () => (
           <div className="min-h-screen flex flex-col">
             <Navigation />
             <StockTicker />
+            <MarketChartHeader />
             <main className="flex-1 pt-20">
               <Routes>
                 <Route path="/" element={<Home />} />

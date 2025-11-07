@@ -1,18 +1,15 @@
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { TrendingUp, BarChart3, FileText, ArrowRight, Sparkles, Play, Award } from 'lucide-react';
+import { TrendingUp, BarChart3, FileText, ArrowRight, Sparkles, Play, Award, Shield, Zap, HeadphonesIcon, Lock } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { MarketStats } from '@/components/MarketStats';
-import { WhyChooseUs } from '@/components/WhyChooseUs';
 import { MarketDashboard } from '@/components/MarketDashboard';
-import { TradingChart } from '@/components/TradingChart';
 import { Testimonials } from '@/components/Testimonials';
 import { useState } from 'react';
 
 export default function Home() {
-  const { t } = useLanguage();
-  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const { t, language } = useLanguage();
 
   const services = [
     {
@@ -45,17 +42,18 @@ export default function Home() {
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-5xl mx-auto text-center">
             <div className="animate-fade-in-up">
-              {/* Badge */}
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/30 text-accent mb-6 animate-scale-in backdrop-blur-sm">
-                <Sparkles className="w-4 h-4" />
-                <span className="text-sm font-semibold">
-                  {t('heroSubtitle')}
-                </span>
+              {/* Logo */}
+              <div className="flex justify-center mb-8">
+                <img
+                  src={new URL('@/assets/logo.png', import.meta.url).href}
+                  alt="The Roots Logo"
+                  className="h-32 md:h-40 w-auto animate-glow drop-shadow-[0_0_40px_rgba(250,204,21,0.5)]"
+                />
               </div>
 
-              <h1 className="text-6xl md:text-8xl font-bold mb-6 text-white drop-shadow-[0_0_40px_rgba(250,204,21,0.4)] leading-tight">
-                <span className="inline-block animate-glow">{t('heroTitle')}</span>
-              </h1>
+              <p className="text-xl md:text-2xl mb-4 text-accent font-semibold">
+                {t('heroSubtitle')}
+              </p>
 
               <p className="text-xl md:text-2xl mb-12 text-white/90 max-w-3xl mx-auto leading-relaxed">
                 {t('heroDescription')}
@@ -76,7 +74,7 @@ export default function Home() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-2 border-white text-white hover:bg-white hover:text-navy font-bold text-lg px-10 py-7 transition-all duration-300 hover:scale-105 backdrop-blur-sm"
+                  className="border-2 border-accent text-accent hover:bg-accent hover:text-navy font-bold text-lg px-10 py-7 transition-all duration-300 hover:scale-105 backdrop-blur-sm shadow-lg"
                   asChild
                 >
                   <Link to="/about">
@@ -108,41 +106,62 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why Choose Us Section - NEW */}
-      <section className="py-24 bg-muted/30 relative overflow-hidden">
+      {/* Why Choose Us & Services - Compact Combined Section */}
+      <section className="py-16 bg-muted/30 relative overflow-hidden">
         <div className="absolute inset-0 bg-[linear-gradient(rgba(250,204,21,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(250,204,21,0.02)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
         <div className="container mx-auto px-4 relative z-10">
-          <WhyChooseUs />
-        </div>
-      </section>
+          {/* Why Choose Us - Compact */}
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-bold mb-3 text-foreground">
+              {language === 'ar' ? 'لماذا تختارنا؟' : 'Why Choose Us?'}
+            </h2>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 max-w-7xl mx-auto mb-16">
+            {[
+              { icon: Shield, title: language === 'ar' ? 'أمان متقدم' : 'Security', color: 'from-blue-500 to-blue-600' },
+              { icon: Zap, title: language === 'ar' ? 'تنفيذ فوري' : 'Fast Execution', color: 'from-accent to-gold' },
+              { icon: Award, title: language === 'ar' ? 'موثوقية' : 'Reliability', color: 'from-purple-500 to-purple-600' },
+              { icon: HeadphonesIcon, title: language === 'ar' ? 'دعم 24/7' : '24/7 Support', color: 'from-green-500 to-green-600' },
+              { icon: TrendingUp, title: language === 'ar' ? 'أدوات احترافية' : 'Pro Tools', color: 'from-orange-500 to-orange-600' },
+              { icon: Lock, title: language === 'ar' ? 'مرخص' : 'Regulated', color: 'from-red-500 to-red-600' },
+            ].map((feature, index) => (
+              <Card
+                key={index}
+                className="p-4 border border-accent/20 hover:border-accent/50 hover-lift transition-all duration-300 animate-scale-in relative overflow-hidden group bg-gradient-to-br from-card to-muted/20"
+                style={{ animationDelay: `${index * 50}ms` }}
+              >
+                <div className="flex flex-col items-center text-center">
+                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${feature.color} flex items-center justify-center shadow-md mb-3 transform transition-all duration-300 group-hover:scale-110`}>
+                    <feature.icon className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="text-sm font-semibold text-foreground">{feature.title}</h3>
+                </div>
+              </Card>
+            ))}
+          </div>
 
-      {/* Services Section - Enhanced */}
-      <section className="py-24 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground animate-fade-in-up">
+          {/* Services - Compact */}
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-bold mb-3 text-foreground">
               {t('servicesTitle')}
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Comprehensive trading solutions tailored to your needs
-            </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {services.map((service, index) => (
               <Card
                 key={index}
-                className="p-8 hover-lift card-glow border-2 hover:border-accent/50 bg-gradient-to-br from-card via-card to-accent/5 backdrop-blur-sm animate-scale-in group"
-                style={{ animationDelay: `${index * 150}ms` }}
+                className="p-6 hover-lift card-glow border-2 hover:border-accent/50 bg-gradient-to-br from-card via-card to-accent/5 backdrop-blur-sm animate-scale-in group"
+                style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="flex flex-col items-center text-center">
-                  <div className="w-20 h-20 bg-gradient-to-br from-accent to-gold rounded-2xl flex items-center justify-center mb-6 shadow-lg transition-all duration-500 group-hover:rotate-12 group-hover:scale-110 relative">
-                    <service.icon className="w-10 h-10 text-navy relative z-10" />
-                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-accent to-gold blur-xl opacity-0 group-hover:opacity-70 transition-opacity"></div>
+                  <div className="w-16 h-16 bg-gradient-to-br from-accent to-gold rounded-xl flex items-center justify-center mb-4 shadow-lg transition-all duration-500 group-hover:rotate-12 group-hover:scale-110 relative">
+                    <service.icon className="w-8 h-8 text-navy relative z-10" />
+                    <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-accent to-gold blur-lg opacity-0 group-hover:opacity-70 transition-opacity"></div>
                   </div>
-                  <h3 className="text-2xl font-bold mb-3 text-foreground group-hover:text-accent transition-colors">
+                  <h3 className="text-xl font-bold mb-2 text-foreground group-hover:text-accent transition-colors">
                     {service.title}
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed">{service.description}</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{service.description}</p>
                 </div>
               </Card>
             ))}
@@ -150,29 +169,22 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Market Dashboard Section - NEW */}
-      <section className="py-24 bg-muted/30">
+      {/* Market Dashboard Section - Compact */}
+      <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
           <MarketDashboard />
         </div>
       </section>
 
-      {/* Trading Chart Section - NEW */}
-      <section className="py-24 bg-background">
-        <div className="container mx-auto px-4">
-          <TradingChart />
-        </div>
-      </section>
-
-      {/* Testimonials Section - NEW */}
-      <section className="py-24 bg-gradient-to-br from-muted/30 via-background to-muted/30">
+      {/* Testimonials Section - Compact */}
+      <section className="py-16 bg-gradient-to-br from-muted/30 via-background to-muted/30">
         <div className="container mx-auto px-4">
           <Testimonials />
         </div>
       </section>
 
-      {/* About Preview Section - Enhanced */}
-      <section className="py-24 bg-background relative overflow-hidden">
+      {/* About Preview Section - Compact */}
+      <section className="py-16 bg-background relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[100px]"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-6xl mx-auto">
@@ -217,8 +229,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA Section - Enhanced */}
-      <section className="py-24 bg-gradient-to-r from-navy via-navy-light to-navy text-white relative overflow-hidden">
+      {/* CTA Section - Compact */}
+      <section className="py-16 bg-gradient-to-r from-navy via-navy-light to-navy text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-[linear-gradient(rgba(250,204,21,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(250,204,21,0.05)_1px,transparent_1px)] bg-[size:100px_100px]"></div>
         <div className="container mx-auto px-4 text-center relative z-10">
           <div className="max-w-4xl mx-auto">
