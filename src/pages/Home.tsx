@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { TrendingUp, BarChart3, FileText, ArrowRight, Sparkles, Play, Award, Shield, Zap, HeadphonesIcon, Lock } from 'lucide-react';
+import { TrendingUp, BarChart3, FileText, ArrowRight, Sparkles, Award } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { MarketStats } from '@/components/MarketStats';
 import { MobileAppSection } from '@/components/MobileAppSection';
@@ -186,27 +186,31 @@ export default function Home() {
       <section className="py-16 bg-muted/30 relative overflow-hidden">
         <div className="absolute inset-0 bg-[linear-gradient(rgba(250,204,21,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(250,204,21,0.02)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
         <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center mb-10">
+          <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-3 text-foreground">
               {t('servicesTitle')}
             </h2>
           </div>
-          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {services.map((service, index) => (
               <Card
                 key={index}
-                className="p-6 hover-lift card-glow border-2 hover:border-accent/50 bg-gradient-to-br from-card via-card to-accent/5 backdrop-blur-sm animate-scale-in group"
+                className="p-8 hover-lift border-l-4 border-l-accent/40 hover:border-l-accent transition-all duration-300 bg-card/50 backdrop-blur-sm animate-scale-in group relative overflow-hidden"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="flex flex-col items-center text-center">
-                  <div className="w-16 h-16 bg-gradient-to-br from-accent to-gold rounded-xl flex items-center justify-center mb-4 shadow-lg transition-all duration-500 group-hover:rotate-12 group-hover:scale-110 relative">
-                    <service.icon className="w-8 h-8 text-navy relative z-10" />
-                    <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-accent to-gold blur-lg opacity-0 group-hover:opacity-70 transition-opacity"></div>
+                <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full -mr-16 -mt-16 group-hover:bg-accent/10 transition-colors"></div>
+                <div className="relative">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="text-5xl font-bold text-accent/20 group-hover:text-accent/30 transition-colors">
+                      0{index + 1}
+                    </div>
                   </div>
-                  <h3 className="text-xl font-bold mb-2 text-foreground group-hover:text-accent transition-colors">
+                  <h3 className="text-xl font-bold mb-3 text-foreground group-hover:text-accent transition-colors">
                     {service.title}
                   </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{service.description}</p>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {service.description}
+                  </p>
                 </div>
               </Card>
             ))}
@@ -218,7 +222,7 @@ export default function Home() {
       <section className="py-16 bg-background relative overflow-hidden">
         <div className="absolute inset-0 bg-[linear-gradient(rgba(250,204,21,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(250,204,21,0.02)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
         <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center mb-10">
+          <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-3 text-foreground">
               {language === 'ar' ? 'لماذا تختارنا؟' : 'Why Choose Us?'}
             </h2>
@@ -226,53 +230,44 @@ export default function Home() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {[
               {
-                icon: Shield,
                 title: language === 'ar' ? 'أمان متقدم' : 'Advanced Security',
                 description: language === 'ar' ? 'حماية متعددة الطبقات لأموالك وبياناتك' : 'Multi-layered protection for your funds and data',
-                color: 'from-blue-500 to-blue-600'
               },
               {
-                icon: Zap,
                 title: language === 'ar' ? 'تنفيذ فوري' : 'Instant Execution',
                 description: language === 'ar' ? 'تنفيذ صفقاتك بسرعة فائقة' : 'Execute trades with lightning speed',
-                color: 'from-accent to-gold'
               },
               {
-                icon: Award,
                 title: language === 'ar' ? 'موثوقية عالية' : 'High Reliability',
                 description: language === 'ar' ? 'أكثر من 25 عامًا من الخبرة' : 'Over 25 years of experience',
-                color: 'from-purple-500 to-purple-600'
               },
               {
-                icon: HeadphonesIcon,
                 title: language === 'ar' ? 'دعم 24/7' : '24/7 Support',
                 description: language === 'ar' ? 'فريق دعم متاح على مدار الساعة' : 'Support team available round the clock',
-                color: 'from-green-500 to-green-600'
               },
               {
-                icon: TrendingUp,
                 title: language === 'ar' ? 'أدوات احترافية' : 'Professional Tools',
                 description: language === 'ar' ? 'أدوات تحليل متقدمة ومؤشرات فنية' : 'Advanced analysis tools and indicators',
-                color: 'from-orange-500 to-orange-600'
               },
               {
-                icon: Lock,
                 title: language === 'ar' ? 'رقابة معتمدة' : 'Regulated',
                 description: language === 'ar' ? 'مرخص من الهيئات المالية' : 'Licensed by financial authorities',
-                color: 'from-red-500 to-red-600'
               },
             ].map((feature, index) => (
               <Card
                 key={index}
-                className="p-6 border-2 border-accent/20 hover:border-accent/50 hover-lift transition-all duration-300 animate-scale-in relative overflow-hidden group bg-gradient-to-br from-card to-muted/20"
+                className="p-6 hover-lift transition-all duration-300 animate-scale-in relative overflow-hidden group bg-card/50 backdrop-blur-sm border-t-2 border-t-accent/30 hover:border-t-accent"
                 style={{ animationDelay: `${index * 50}ms` }}
               >
-                <div className="flex flex-col items-center text-center">
-                  <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${feature.color} flex items-center justify-center shadow-md mb-4 transform transition-all duration-300 group-hover:scale-110`}>
-                    <feature.icon className="w-7 h-7 text-white" />
-                  </div>
-                  <h3 className="text-lg font-bold text-foreground mb-2">{feature.title}</h3>
-                  <p className="text-sm text-muted-foreground">{feature.description}</p>
+                <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-accent/20 to-transparent group-hover:via-accent/40 transition-all"></div>
+                <div className="relative">
+                  <div className="w-12 h-1 bg-accent mb-4"></div>
+                  <h3 className="text-lg font-bold text-foreground mb-3 group-hover:text-accent transition-colors">
+                    {feature.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {feature.description}
+                  </p>
                 </div>
               </Card>
             ))}
