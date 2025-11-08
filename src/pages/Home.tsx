@@ -175,9 +175,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Mobile App Section */}
-      <MobileAppSection />
-
       {/* Our Services Section */}
       <section className="py-16 bg-muted/30 relative overflow-hidden">
         <div className="absolute inset-0 bg-[linear-gradient(rgba(250,204,21,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(250,204,21,0.02)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
@@ -213,6 +210,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Mobile App Section */}
+      <MobileAppSection />
 
       {/* Why Choose Us Section */}
       <section className="py-16 bg-background relative overflow-hidden">
@@ -270,9 +270,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* Mobile App Section */}
-      <MobileAppSection />
     </div>
   );
 }
