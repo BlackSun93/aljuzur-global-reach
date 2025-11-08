@@ -104,10 +104,6 @@ export default function Home() {
           <div className="max-w-6xl mx-auto">
             <div className="grid md:grid-cols-2 gap-16 items-center">
               <div className="order-2 md:order-1">
-                <div className="mb-6">
-                  <div className="w-16 h-1 bg-accent mb-4"></div>
-                  <span className="text-sm font-semibold text-accent tracking-wider uppercase">About Us</span>
-                </div>
                 <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground leading-tight">
                   {t('aboutTitle')}
                 </h2>
@@ -147,10 +143,6 @@ export default function Home() {
         <div className="absolute inset-0 bg-[linear-gradient(rgba(250,204,21,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(250,204,21,0.05)_1px,transparent_1px)] bg-[size:100px_100px]"></div>
         <div className="container mx-auto px-4 text-center relative z-10">
           <div className="max-w-4xl mx-auto">
-            <div className="mb-8 flex flex-col items-center">
-              <div className="w-16 h-1 bg-accent mb-4"></div>
-              <span className="text-sm font-semibold text-accent tracking-wider uppercase">Trusted Leadership</span>
-            </div>
             <h2 className="text-4xl md:text-5xl font-bold mb-6">{t('ownershipTitle')}</h2>
             <p className="text-2xl mb-4 text-accent font-semibold">{t('ownershipDescription')}</p>
             <p className="text-lg mb-10 max-w-3xl mx-auto text-white/90 leading-relaxed">
