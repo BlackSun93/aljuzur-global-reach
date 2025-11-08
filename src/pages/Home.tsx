@@ -97,23 +97,16 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Market Stats Section */}
-      <section className="py-20 bg-background relative">
-        <div className="container mx-auto px-4">
-          <MarketStats />
-        </div>
-      </section>
-
       {/* About Us Section */}
-      <section className="py-16 bg-background relative overflow-hidden">
+      <section className="py-20 bg-background relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[100px]"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-6xl mx-auto">
             <div className="grid md:grid-cols-2 gap-16 items-center">
               <div className="order-2 md:order-1">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/30 text-accent mb-6 backdrop-blur-sm">
-                  <Sparkles className="w-4 h-4" />
-                  <span className="text-sm font-semibold">About Us</span>
+                <div className="mb-6">
+                  <div className="w-16 h-1 bg-accent mb-4"></div>
+                  <span className="text-sm font-semibold text-accent tracking-wider uppercase">About Us</span>
                 </div>
                 <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground leading-tight">
                   {t('aboutTitle')}
@@ -154,9 +147,9 @@ export default function Home() {
         <div className="absolute inset-0 bg-[linear-gradient(rgba(250,204,21,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(250,204,21,0.05)_1px,transparent_1px)] bg-[size:100px_100px]"></div>
         <div className="container mx-auto px-4 text-center relative z-10">
           <div className="max-w-4xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/20 border border-accent/40 text-accent mb-6 backdrop-blur-sm">
-              <Award className="w-4 h-4" />
-              <span className="text-sm font-semibold">Trusted Leadership</span>
+            <div className="mb-8 flex flex-col items-center">
+              <div className="w-16 h-1 bg-accent mb-4"></div>
+              <span className="text-sm font-semibold text-accent tracking-wider uppercase">Trusted Leadership</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold mb-6">{t('ownershipTitle')}</h2>
             <p className="text-2xl mb-4 text-accent font-semibold">{t('ownershipDescription')}</p>
@@ -181,6 +174,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Mobile App Section */}
+      <MobileAppSection />
 
       {/* Our Services Section */}
       <section className="py-16 bg-muted/30 relative overflow-hidden">
