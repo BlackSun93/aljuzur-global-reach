@@ -79,7 +79,7 @@ export const CompanyLocations = () => {
                 </div>
                 <div className="text-left">
                   <p className="text-xs text-muted-foreground">{language === 'ar' ? 'اتصل بنا' : 'Call Us'}</p>
-                  <a href="tel:+20123456789" className="font-semibold text-foreground hover:text-accent transition-colors">
+                  <a href="tel:+20123456789" className="font-semibold text-foreground hover:text-accent transition-colors" dir="ltr">
                     +20 123 456 789
                   </a>
                 </div>
